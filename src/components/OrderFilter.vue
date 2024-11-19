@@ -27,6 +27,7 @@
     <h2>Поиск по дате и статусу</h2>
     <v-row>
       <v-select
+        class="v-select"
         variant="outlined"
         label="Статус"
         multiple
@@ -34,20 +35,22 @@
         v-model="selectedStatuses"
         :items="statuses"
       />
-      <picker-dialog 
-        v-model="dateFrom"
-        :minDate="minDate"
-        :maxDate="maxDate"
-        titleBtn="начало периода"
-        titlePicker="Введите начальную дату поиска"
-      />
-      <picker-dialog 
-        v-model="dateTo"
-        :minDate="minDate"
-        :maxDate="maxDate"
-        titleBtn="конец периода"
-        titlePicker="Введите конечную дату поиска"
-      />
+      <div class="picker-wrap">
+        <picker-dialog
+          v-model="dateFrom"
+          :minDate="minDate"
+          :maxDate="maxDate"
+          titleBtn="начало периода"
+          titlePicker="Введите начальную дату поиска"
+        />
+        <picker-dialog 
+          v-model="dateTo"
+          :minDate="minDate"
+          :maxDate="maxDate"
+          titleBtn="конец периода"
+          titlePicker="Введите конечную дату поиска"
+        />
+      </div>
       <v-btn
         variant="outlined"
         color="surface-variant"
@@ -134,12 +137,18 @@ export default {
   }
   .v-row {
     gap: 20px;
-    flex-wrap: nowrap;
     margin-bottom: 50px;
   }
   .v-container {
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;
+  }
+  .picker-wrap {
+    display: flex;
+    gap: 20px;
+  }
+  .v-select {
+    min-width: 200px;
   }
 </style>
