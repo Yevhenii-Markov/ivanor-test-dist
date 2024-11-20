@@ -27,7 +27,6 @@
     <h2>Поиск по дате и статусу</h2>
     <v-row>
       <v-select
-        class="v-select"
         variant="outlined"
         label="Статус"
         multiple
@@ -147,8 +146,9 @@ export default {
   .picker-wrap {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
   }
-  .v-select {
-    min-width: 200px;
+  .v-input {
+    min-width: 220px;
   }
 </style>
